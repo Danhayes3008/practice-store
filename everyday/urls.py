@@ -17,9 +17,15 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from users.views import index
 from users import urls as urls_users
+from stock import urls as urls_stock
+from stock.views import products
+from django.views import static
+from .settings import MEDIA_ROOT
 
 urlpatterns = [
-    url(r'^$', index, name='index'),
+    url(r'^$', products, name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^users/', include(urls_users)),
+    url(r'^stock/', include(urls_stock)),
+    url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
 ]

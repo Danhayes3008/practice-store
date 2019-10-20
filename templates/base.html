@@ -37,10 +37,10 @@
                     <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i>Log In</a></li>
                     {% endif %}
                     <li>
-                        <a href="#">
+                        <a href="{% url 'view_basket' %}">
                             <i class="fa fa-shopping-cart"></i>Cart
-                            {% if product_count > 0 %}
-                            <label class="badge badge-warning">{{ product_count }}</label>
+                            {% if stock_count > 0 %}
+                            <label class="badge badge-warning">{{ stock_count }}</label>
                             {% endif %}
                         </a>
                     </li>
